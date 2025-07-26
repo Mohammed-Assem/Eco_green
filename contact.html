@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <img src="https://yaseen-saad.github.io/EcoEnergy/images/menulogo.png" alt="Logo">
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html" class="location">Contact Us</a></li>
+        </ul>
+    </nav>
+    <center><img src="img3.png"  class="img2"></center>
+  <div class="contact-wrapper">
+    <div class="contact-form-box">
+      <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your name">
+        <div class="form-error-msg">Please Enter Your Real Name</div>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" placeholder="Enter a subject">
+        <div class="form-error-msg">Please Enter A Valid Subject</div>
+
+        <label for="message">Message</label>
+        <textarea id="message" rows="4" placeholder="Type your message"></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <div class="contact-info-box">
+      <h2>Contact Info</h2>
+      <p>
+        We'd love to hear from you. Whether it’s a project inquiry or feedback, don’t hesitate to get in touch. Our team is here to help with any energy-related questions or collaboration ideas.
+      </p>
+      <p><strong>Phone:</strong> +20 1023863853</p>
+      <p><strong>Email:</strong> mohamedassem495@gmail.com</p>
+    </div>
+  </div>
+    <script>
+    document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault(); 
+
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+
+        const nameError = nameInput.nextElementSibling;
+        const emailError = emailInput.nextElementSibling;
+
+        let isValid = true;
+
+        nameError.style.display = "none";
+        emailError.style.display = "none";
+
+        const nameRegex = /^[a-zA-Z\s]{2,}$/;
+        if (!nameRegex.test(nameInput.value.trim())) {
+        nameError.textContent = "Please enter a valid full name.";
+        nameError.style.display = "block";
+        isValid = false;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailInput.value.trim())) {
+        emailError.textContent = "Please enter a valid email address.";
+        emailError.style.display = "block";
+        isValid = false;
+        }
+
+        if (isValid) {
+        alert("Form submitted successfully!");
+        }
+    });
+    </script>
+
+<footer class="footer">
+  <div class="footer-content">
+    <p> 2025 Green Energy. All rights reserved.</p>
+    <p>
+      <a href="#">Privacy Policy</a> 
+      <a href="#">Terms of Service</a> 
+      <a href="#">Contact Us</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>
